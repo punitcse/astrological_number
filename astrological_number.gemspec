@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name               = "astrological-number"
-  s.version            = "0.0.1"
+  s.version            = "0.1.0"
   s.default_executable = "astrological-number"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -9,11 +9,12 @@ Gem::Specification.new do |s|
   s.description = %q{Get the astrological number from date of birth}
   s.email = %q{jainpunit786@gmail.com}
   s.license = 'MIT'
-  s.files = ["lib/astrological_number.rb"]
-  s.homepage = %q{http://rubygems.org/gems/astrological-number}
+  s.files = `git ls-files`.split("\n")
+  s.homepage = %q{https://github.com/punitcse/astrological_number}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{astrological number}
+  s.add_development_dependency 'rspec', '~> 0'
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

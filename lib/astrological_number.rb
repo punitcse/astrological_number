@@ -1,25 +1,28 @@
 class AstrologicalNumber
   attr_accessor :date_of_birth, :day, :month, :year
 
-  def self.get_number
-    p "Please enter your date_of_birth in dd-mm-yyyy format"
-    AstrologicalNumber.new(gets)
-  end
-
   def initialize(dob)
     @date_of_birth = dob
-    if valid?
-      @day, @month, @year = dob.split('-')
-      p "Your Lucky Number is #{calculate_number}"
-    else
-      p "Please enter date_of_birth in correct format (dd-mm-yyyy) "
-      AstrologicalNumber.new(gets)
-    end
+    @day, @month, @year = dob.split('-')
+  end
+
+  def self.get_number
+    p "Please enter your date_of_birth in dd-mm-yyyy format"
+    AstrologicalNumber.new(gets).check_validation
   end
 
   def calculate_number
     dob = [day, month, year].join.to_i
     total(dob)
+  end
+
+  def check_validation
+    if valid?
+      p "Your Lucky Number is #{calculate_number}"
+    else
+      p "Invalid format"
+      AstrologicalNumber.get_number
+    end
   end
 
 private
@@ -35,7 +38,6 @@ private
       d = d/10
       sum += rem
     end
-    sum < 10 ? sum : total(sum)
+    p (sum < 10 ? sum : total(sum))
   end
 end
-
