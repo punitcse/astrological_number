@@ -26,8 +26,6 @@ class AstrologicalNumber
   end
 
 
-
-
 private
 
   def valid?
