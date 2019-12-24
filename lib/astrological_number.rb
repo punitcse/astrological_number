@@ -25,6 +25,7 @@ class AstrologicalNumber
     end
   end
 
+  
 private
 
   def valid?
