@@ -1,10 +1,11 @@
 
 pipeline {
     agent any
+    options { disableConcurrentBuilds() }
     stages {
         stage('build') {
             steps {
-                sh 'ruby --version'
+                sh 'sleep 100'
             }
         }
     }
