@@ -2,13 +2,15 @@
 pipeline {
     agent any
     options { disableConcurrentBuilds() }
-    lock(resource: "compiler_${env.NODE_NAME}", inversePrecedence: true) {
         stages {
            stage('build') {
               steps {
+                  lock(resource: "compiler_${env.NODE_NAME}", inversePrecedence: true) {
+                  
                      sh 'sleep 100'
+                   }
+                      
               }
            }
-       }
     }
 }
